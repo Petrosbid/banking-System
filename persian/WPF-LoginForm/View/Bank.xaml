@@ -1,0 +1,562 @@
+﻿<Window x:Class="BankSystem.View.Bank"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankSystem.View"
+        mc:Ignorable="d"
+        Title="Bank" Height="550" Width="800"
+                WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown" Icon="/View/bank_2830284.png">
+
+    <Border CornerRadius="12">
+        <Border.Background>
+            <ImageBrush ImageSource="/View/[freepicdownloader.com]-people-taking-out-money-from-bank-concept-illustration-large (1).jpg"
+                        Stretch="Fill"/>
+        </Border.Background>
+
+        <Border CornerRadius="10"                    
+            BorderThickness="2"
+            Opacity="0.95">
+
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF000B58" Offset="0"/>
+                    <GradientStop Color="#FF4DA1A9" Offset="0.838"/>
+                    <GradientStop Color="#FFFFF4B7" Offset="1"/>
+                    <GradientStop Color="#FF006A67" Offset="0.543"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush EndPoint="1,0" StartPoint="0,1">
+                    <GradientStop Color="#FF222831" Offset="0"/>
+                    <GradientStop Color="#FFEEEEEE" Offset="0.955"/>
+                    <GradientStop Color="#FF0A858D" Offset="0.745"/>
+                    <GradientStop Color="#FF393E46" Offset="0.223"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="مدیریت بانک"
+                               Foreground="DarkGray"
+                               FontFamily="Book Antiqua"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+
+                    <Button x:Name="btnMinimize"                           
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Click="btnMinimize_Click" Margin="728,-11,13,-9" Width="50" Height="50" Grid.ColumnSpan="3">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                    <Button x:Name="btnClose"                          
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnClose_Click" Width="50" Height="50" Grid.ColumnSpan="3" Margin="13,-11,-8,-9" Background="Red">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#DA34AE"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#C62DAE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+                <TextBlock x:Name="emptypass"
+                    Foreground="Red"
+                    FontSize="15"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                               Margin="0,443,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden" FlowDirection="RightToLeft" Visibility="Hidden"/>
+                <TextBlock x:Name="succseed" HorizontalAlignment="Center" Margin="0,466,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" AutomationProperties.Name="succseed" Foreground="#FF00FF3D" FlowDirection="RightToLeft" ScrollViewer.VerticalScrollBarVisibility="Disabled" Panel.ZIndex="9" FontFamily="Bahnschrift" FontSize="15" Visibility="Hidden"/>
+                <TextBlock x:Name="Title"
+                               Foreground="White"
+                               FontSize="25"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Center" Margin="0,26,0,478" Grid.RowSpan="2" FlowDirection="RightToLeft"><Run Text="بانک"/><Run FlowDirection="RightToLeft" Language="fa-ir" Text=" ..."/></TextBlock>
+                <TextBlock
+                    Foreground="LightGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    Margin="30,20,646,481" Grid.Row="1"><Run FlowDirection="RightToLeft" Language="fa-ir" Text="بازگشت به صفحه ورود"/></TextBlock>
+                <Button x:Name="btnMinimize_Copy"                           
+                    BorderThickness="0"
+                    Content="🔙"
+                    Foreground="White"
+                    FontSize="16"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Click="back_Click" Margin="0,5,766,466" Background="#FF8AB5C9" Grid.Row="1">
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#28AEED"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#278BEF"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="25" Height="25"
+                                CornerRadius="100"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+                <ListView x:Name="ListAccounts" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="319,157,0,66" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Foreground="#FFAD8AE9" FontFamily="Book Antiqua" FontSize="14" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1" BorderBrush="{x:Null}" Width="468" HorizontalAlignment="Left" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" OpacityMask="Black" Background="{x:Null}" VerticalContentAlignment="Center" SelectionChanged="ListAccounts_SelectionChanged" >
+                    <ListView.View>
+
+                        <GridView>
+                            <GridViewColumn Header="نام کاربر" DisplayMemberBinding="{Binding FullName}" Width="120"/>
+                            <GridViewColumn Header="کد ملی" DisplayMemberBinding="{Binding NationalID}" Width="100"/>
+                            <GridViewColumn Header="شماره حساب" DisplayMemberBinding="{Binding AccountNumber}" Width="100"/>
+                            <GridViewColumn Header="فعال" DisplayMemberBinding="{Binding Enable}" Width="60"/>
+                            <GridViewColumn Header="موجودی" DisplayMemberBinding="{Binding Balance}" Width="100"/>
+
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button x:Name="deleteBank"                          
+                    BorderThickness="0"
+                    Content="حذف کردن"
+                    Foreground="White"
+                    FontFamily="Arial Black"
+                    Cursor="Hand"
+                    Click="btnLogin_Click" Margin="672,447,0,18" Grid.Row="1">
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#462AD8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="100" Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock
+                    Foreground="White"
+                    FontSize="25"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"
+                    Margin="492,83,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36"><Run FlowDirection="RightToLeft" Language="fa-ir" Text="کاربران بانک"/></TextBlock>
+                <Button x:Name="editbank"                          
+                    BorderThickness="0"
+                    Content="ویرایش کردن"
+                    Foreground="White"
+                    FontFamily="Arial Black"
+                    Cursor="Hand"
+                    Click="btnedit_Click" Margin="557,447,120,18" Grid.Row="1">
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#462AD8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="100" Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="enable"                          
+                    BorderThickness="0"
+                    Content="فعال/غیرفعال کردن"
+                    Foreground="White"
+                    FontFamily="Arial Black"
+                    Cursor="Hand"
+                    Click="enable_Click" Margin="446,446,243,19" Grid.Row="1" RenderTransformOrigin="0.222,0.531">
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#462AD8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="100" Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Label Content="نام کابری:" Margin="394,65,0,421" Grid.Row="1" HorizontalAlignment="Left" FlowDirection="RightToLeft" Background="{x:Null}" Foreground="#FFFDFAFA" FontFamily="Cambria Math" FontWeight="Bold"/>
+                <Label Content="محل:" Margin="402,30,0,456" Grid.Row="1" HorizontalAlignment="Left" FlowDirection="RightToLeft" Width="48" Background="{x:Null}" Foreground="#FFFDFAFA" FontFamily="Cambria Math" FontWeight="Bold"/>
+                <Label Content="تعداد کاربران بانک:" Margin="686,129,0,359" Grid.Row="1" HorizontalAlignment="Left" FlowDirection="RightToLeft" Width="98" Background="{x:Null}" Foreground="#FFFDFAFA" FontFamily="Cambria Math" FontWeight="Bold"/>
+                <TextBlock x:Name="loclable"
+                    Foreground="White"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    FontFamily="Calibri"
+                    HorizontalAlignment="Left" Margin="310,34,0,460" FlowDirection="RightToLeft" Grid.Row="1" Width="79"><Run FlowDirection="RightToLeft" Language="fa-ir" Text="شهر"/></TextBlock>
+                <TextBlock x:Name="userlable"
+                    Foreground="White"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    FontFamily="Calibri"
+                    HorizontalAlignment="Left" Margin="310,65,0,429" Grid.Row="1" Width="79" Text="username" FlowDirection="RightToLeft"/>
+                <TextBlock x:Name="numaccount"
+                    Foreground="White"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    FontFamily="Calibri"
+                    HorizontalAlignment="Left" Margin="624,130,0,364" Grid.Row="1" Width="52" Text="numbers"/>
+                <TextBlock
+                    Foreground="White"
+                    FontSize="25"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"
+                    Text="ثبت و ویرایش بانک" Margin="53,86,0,400" Grid.Row="1" HorizontalAlignment="Left" Width="198"/>
+                <TextBlock
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="42,385,664,117" Grid.Row="1" Text="نام کاربری"/>
+                <TextBox x:Name="txtname"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0" AutomationProperties.Name="txtUser" AutomationProperties.IsRequiredForForm="True" Margin="42,404,664,84" Grid.Row="1">
+
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png"
+                            Stretch="None"
+                            AlignmentX="Left"/>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="152,385,534,117" Grid.Row="1" Text="رمز عبور" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBox x:Name="txtloc"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0" AutomationProperties.Name="txtUser" AutomationProperties.IsRequiredForForm="True" Margin="152,404,534,84" Grid.Row="1">
+
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png"
+                            Stretch="None"
+                            AlignmentX="Left"/>
+                    </TextBox.Background>
+                </TextBox>
+                <Button x:Name="addBank"                          
+                    BorderThickness="0"
+                    Content="اضافه/ویرایش کردن"
+                    Foreground="White"
+                    FontFamily="Arial Black"
+                    Cursor="Hand"
+                    Click="Button_Click" AutomationProperties.Name="addBank" BorderBrush="{x:Null}" Margin="73,447,565,20" Grid.Row="1">
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#462AD8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="150" Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="42,130,534,372" Grid.Row="1" Text="اسم و فامیل کاربر"/>
+                <TextBox x:Name="Full_name"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0" AutomationProperties.Name="txtUser" AutomationProperties.IsRequiredForForm="True" Margin="42,149,534,339" Grid.Row="1">
+
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png"
+                            Stretch="None"
+                            AlignmentX="Left"/>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="42,192,534,309" Grid.Row="1" Text="کد ملی"/>
+                <TextBlock
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="42,251,664,251" Grid.Row="1" Text="شماره تماس"/>
+                <TextBox x:Name="contactnumber"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0" AutomationProperties.Name="txtUser" AutomationProperties.IsRequiredForForm="True" Margin="42,270,534,218" Grid.Row="1">
+
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png"
+                            Stretch="None"
+                            AlignmentX="Left"/>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="42,314,644,188" Grid.Row="1" Text="تاریخ تولد" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <Button x:Name="Show_Full_informations"                          
+                    BorderThickness="0"
+                    Content="نشان دادن تمام اطلاعات"
+                    Foreground="White"
+                    FontFamily="Arial Black"
+                    Cursor="Hand"
+                    Margin="319,445,363,20" Grid.Row="1" RenderTransformOrigin="0.222,0.531" Click="Show_Full_informations_Click">
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#462AD8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="100" Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <DatePicker x:Name="birthdate" HorizontalAlignment="Left" Margin="42,333,0,0" Grid.Row="1" VerticalAlignment="Top" Width="90" Height="29"/>
+                <TextBlock
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="152,315,534,187" Grid.Row="1" Text="مقدار پول اولیه" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBox x:Name="balance"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0" AutomationProperties.Name="txtUser" AutomationProperties.IsRequiredForForm="True" Margin="152,334,534,154" Grid.Row="1">
+
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png"
+                            Stretch="None"
+                            AlignmentX="Left"/>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBox x:Name="national_ID"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0" AutomationProperties.Name="txtUser" AutomationProperties.IsRequiredForForm="True" Margin="42,212,534,276" Grid.Row="1">
+
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png"
+                            Stretch="None"
+                            AlignmentX="Left"/>
+                    </TextBox.Background>
+                </TextBox>
+                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"/>
+
+            </Grid>
+
+        </Border>
+
+    </Border>
+
+</Window>
