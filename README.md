@@ -9,7 +9,9 @@ A comprehensive WPF-based banking application that simulates a Central Banking S
 - **Data Security**: Robust security measures with encrypted credentials and secure data handling.
   
 -In this project you can login as Central bank and add, remove , edit or disable banks.
+
 -You can login as bank if it is enabled then see full information of members of your bank, delete them,disable/enable member account, add a new member or even delete their information.
+
 -Also you can login to your bank as an user and do transactions like purchase, withdraw, get a new card, search in your transactions, see all your transactions, etc.
 
 ---
