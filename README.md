@@ -41,6 +41,7 @@ Manage loans and oversee banking operations efficiently.
 
 
 ### User Panel
+![image](https://github.com/user-attachments/assets/63c4e577-4af9-44c9-bb50-b84d09d6923e)
 
 
 
