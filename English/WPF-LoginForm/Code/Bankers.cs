@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -86,7 +86,7 @@ namespace BankSystem
                         var transaction = new Transaction
                         {
                             TransactionID = "0" + (++transferCounter).ToString("D2"),
-                            TransactionType = "انتقال",
+                            TransactionType = "Transfer",
                             Amount = amount,
                             TransactionDate = DateTime.Now,
                             AccountNumber = account.AccountNumber
@@ -117,7 +117,7 @@ namespace BankSystem
                 var transaction = new Transaction
                 {
                     TransactionID = "3" + (++transferCounter).ToString("D2"),
-                    TransactionType = "موجودی",
+                    TransactionType = "GetBalance",
                     Amount = 750,
                     TransactionDate = DateTime.Now,
                     AccountNumber = account.AccountNumber
@@ -144,7 +144,7 @@ namespace BankSystem
                 var transaction = new Transaction
                 {
                     TransactionID = "2" + (++transferCounter).ToString("D2"),
-                    TransactionType = "خرید",
+                    TransactionType = "purchase",
                     Amount = amount,
                     TransactionDate = DateTime.Now,
                     AccountNumber = account.AccountNumber
@@ -171,7 +171,7 @@ namespace BankSystem
                 var transaction = new Transaction
                 {
                     TransactionID = "1" + (++transferCounter).ToString("D2"),
-                    TransactionType = "واریز",
+                    TransactionType = "recharge",
                     Amount = amount,
                     TransactionDate = DateTime.Now,
                     AccountNumber = account.AccountNumber
@@ -243,7 +243,7 @@ namespace BankSystem
                 SaveToJson();
                 return string.Join("-", Enumerable.Range(0, 4).Select(i => cardNumber.Substring(i * 4, 4)));
             }
-            return "شما به سقف تعداد کارت برای یک حساب رسیدید.";
+            return "You have reached the limit of number of cards for one account.";
         }
 
     }
