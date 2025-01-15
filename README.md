@@ -27,21 +27,25 @@ A comprehensive WPF-based banking application that simulates a Central Banking S
 
 ### Login Screen
 (![Login Screen](https://github.com/user-attachments/assets/0b2a2852-af1b-4213-a813-5115bf98686b))
+![image](https://github.com/user-attachments/assets/968bdafe-9d40-45df-b482-88c725bdcc90)
 A simple and intuitive login interface for secure access.
 
 
 ### Banking Dashboard
 ![image](https://github.com/user-attachments/assets/ff4761a6-a80a-44cc-9c4d-95b0a664e5cb)
+![image](https://github.com/user-attachments/assets/e770d2a9-686c-4cdb-8953-782c57f54f40)
 View detailed banking information and perform operations seamlessly.
 
 
 ### Admin Panel(Centeral bank)
 ![Centeral bank](https://github.com/user-attachments/assets/7956a844-364c-4e2e-91b5-18604635f2b3)
+![image](https://github.com/user-attachments/assets/fab09d2d-cad7-4074-8cc4-e6248134ef5c)
 Manage loans and oversee banking operations efficiently.
 
 
 ### User Panel
 ![image](https://github.com/user-attachments/assets/63c4e577-4af9-44c9-bb50-b84d09d6923e)
+![image](https://github.com/user-attachments/assets/efa70249-91c3-496e-9e89-e4781e606e54)
 
 
 
