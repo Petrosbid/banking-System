@@ -1,45 +1,83 @@
-# **پروژه سیستم‌های چندعاملی هوشمند**
+# Central Banking System with WPF and JSON
 
-**درس:** هوش مصنوعی
-**استاد:** دکتر مهدی افتخاری
+A comprehensive WPF-based banking application that simulates a Central Banking System with support for multiple banks and user types. The app includes secure authentication, account management, loan approval, and transaction tracking, all powered by a JSON database and a modern MVVM architecture.
 
-## **درباره پروژه**
+## 🌟 Features
 
-این پروژه یک پیاده‌سازی عملی از مفاهیم بنیادی هوش مصنوعی، با تمرکز بر معماری‌های مختلف عامل‌های هوشمند و سیستم‌های چندعاملی است. در این پروژه، سه معماری متمایز عامل (واکنش‌گر ساده، مبتنی بر مدل، و هدف‌گرا) بر اساس طبقه‌بندی کتاب راسل و نورویگ پیاده‌سازی و عملکرد آن‌ها در یک محیط شبیه‌سازی شده Gridworld تحلیل می‌شود.
+- **Transaction Logs**: Detailed history of all user and bank transactions.
+- **Bank Management**: Centralized control over multiple banks, enabling/disabling services.
+- **Data Security**: Robust security measures with encrypted credentials and secure data handling.
+  
+-In this project you can login as Central bank and add, remove , edit or disable banks.
 
-## **ویژگی‌های کلیدی**
+-You can login as bank if it is enabled then see full information of members of your bank, delete them,disable/enable member account, add a new member or even delete their information.
 
-* **سه معماری عامل:**
-    * **عامل واکنش‌گر ساده:** تصمیم‌گیری بر اساس قوانین شرط-عمل.
-    * **عامل مبتنی بر مدل:** دارای حافظه داخلی برای نگهداری وضعیت جهان.
-    * **عامل هدف‌گرا:** قابلیت برنامه‌ریزی بلندمدت با استفاده از الگوریتم $A^{*}$ و توابع مطلوبیت.
-* **محیط شبیه‌سازی پویا:** یک دنیای شبکه‌ای (Gridworld) با قابلیت تنظیم که شامل منابع، اهداف، خطرات و موانع است.
-* **نمایش بصری زنده:** قابلیت مشاهده عملکرد عامل‌ها به صورت گرافیکی با استفاده از کتابخانه `Pygame`.
-* **چارچوب تست و تحلیل:** یک سیستم کامل برای اجرای آزمایش‌های مقایسه‌ای، جمع‌آوری داده‌های عملکرد و تولید نمودار.
+-Also you can login to your bank as an user and do transactions like purchase, withdraw, get a new card, search in your transactions, see all your transactions, etc.
 
-## **پیش‌نیازها**
+---
+## 🚀 Technologies Used
 
-برای اجرای این پروژه به Python 3.x و کتابخانه‌های زیر نیاز دارید.
+- **WPF (Windows Presentation Foundation)** for the frontend UI.
+- **C#** for application logic and backend processing.
+- **MVVM Pattern** for clean and maintainable code structure.
 
-* `numpy`
-* `matplotlib`
-* `pandas`
-* `seaborn`
-* `pygame`
+---
 
-## **نصب و راه‌اندازی**
+## 📸 Screenshots
 
-۱. ابتدا، مخزن پروژه را کلون کرده یا فایل‌های پروژه را در یک پوشه دانلود کنید.
+### Login Screen
+(![Login Screen](https://github.com/user-attachments/assets/0b2a2852-af1b-4213-a813-5115bf98686b))
+![image](https://github.com/user-attachments/assets/968bdafe-9d40-45df-b482-88c725bdcc90)
+A simple and intuitive login interface for secure access.
 
-۲. با استفاده از `pip`، تمام کتابخانه‌های مورد نیاز را نصب کنید:
-```bash
-pip install numpy matplotlib pandas seaborn pygame
-```
-## **نحوه استفاده و اجرا**
-اسکریپت اصلی پروژه main.py است. برای اجرای شبیه‌سازی‌ها، می‌توانید بخش main() در انتهای این فایل را ویرایش کنید.
-## **خروجی‌های برنامه**
-پس از اجرای آزمایش‌ها، برنامه خروجی‌های زیر را تولید می‌کند:
 
-1. فایل‌های لاگ (Logs): در پوشه‌ای به نام logs، فایل‌های JSON برای هر آزمایش ذخیره می‌شود که شامل تمام حرکات و تصمیمات عامل‌ها در طول شبیه‌سازی است.
+### Banking Dashboard
+![image](https://github.com/user-attachments/assets/ff4761a6-a80a-44cc-9c4d-95b0a664e5cb)
+![image](https://github.com/user-attachments/assets/e770d2a9-686c-4cdb-8953-782c57f54f40)
+View detailed banking information and perform operations seamlessly.
 
-2. نمودارهای عملکرد: در صورت اجرای run_comparison، نمودارهای مقایسه‌ای به صورت پنجره‌های جداگانه نمایش داده می‌شوند.
+
+### Admin Panel(Centeral bank)
+![Centeral bank](https://github.com/user-attachments/assets/7956a844-364c-4e2e-91b5-18604635f2b3)
+![image](https://github.com/user-attachments/assets/fab09d2d-cad7-4074-8cc4-e6248134ef5c)
+Manage loans and oversee banking operations efficiently.
+
+
+### User Panel
+![image](https://github.com/user-attachments/assets/63c4e577-4af9-44c9-bb50-b84d09d6923e)
+![image](https://github.com/user-attachments/assets/efa70249-91c3-496e-9e89-e4781e606e54)
+
+
+
+---
+## 🔧 Setup Instructions
+1. Clone the repository:
+git clone https://github.com/yourusername/banking-System.git
+markdown
+Copy code
+2. Open the solution file (`banking-System.sln`) in Visual Studio.
+3. Restore NuGet packages.
+4. Build and run the application.
+---
+
+## 🤝 Contributing
+We welcome contributions to enhance this project! Here's how you can help:
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/YourFeatureName`).
+3. Commit your changes (`git commit -m 'Add Your Feature Name'`).
+4. Push to the branch (`git push origin feature/YourFeatureName`).
+5. Open a Pull Request.
+---
+
+## ⚖️ License
+This project is licensed under the MIT License. See the LICENSE file for details.
+## 📧 Support
+If you find any issues or have suggestions, please open an issue on GitHub or contact the developer.
+
+---
+## 🌐 SEO Keywords
+C# Banking Application
+Central Bank System WPF
+JSON Database Integration
+WPF MVVM Tutorial
+---
